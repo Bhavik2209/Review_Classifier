@@ -7,10 +7,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # Load the model and tokenizer within the main function
 @st.cache(allow_output_mutation=True)
 def load_model():
-    pickle_in = open(r"C:\Users\SVI\Desktop\text_reog\clf.pkl", "rb")
+    pickle_in = open("clf.pkl", "rb")
     reg = pickle.load(pickle_in)
 
-    pickle_tra = open(r'C:\Users\SVI\Desktop\text_reog\tra.pkl', 'rb')
+    pickle_tra = open('tra.pkl', 'rb')
     tfidf = pickle.load(pickle_tra)
     return reg, tfidf
 
@@ -28,10 +28,10 @@ def predict_review(model, vectorizer, user_data):
     return "good review" if prediction == 1 else "bad review"
 
 def main():
-    st.title("Performance Index")
+    st.title("Review Classifier")
     html_temp = """
     <div style="background-color:tomato;padding:10px">
-    <h2 style="color:white;text-align:center;">Streamlit Performance App</h2>
+    <h2 style="color:white;text-align:center;">Streamlit Review Classifier App</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
